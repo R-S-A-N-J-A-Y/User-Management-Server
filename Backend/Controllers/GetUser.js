@@ -8,4 +8,16 @@ const getUsers = async () => {
   }
 };
 
-module.exports = getUsers;
+const getByUserName = async (username, password) => {
+  try {
+    return await User.findOne({
+      "credential.username": username,
+      "credential.password": password,
+    });
+  } catch (err) {
+    throw new Error(err);
+  }
+};
+
+module.exports.getUsers = getUsers;
+module.exports.getByUserName = getByUserName;

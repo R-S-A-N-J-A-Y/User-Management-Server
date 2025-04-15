@@ -2,9 +2,9 @@ const express = require("express");
 const Route = express.Router();
 
 // Get All the User from MongoDB
-const getUsers = require("../Controllers/GetUser.js");
+const { getUsers } = require("../Controllers/GetUser.js");
 
-Route.get("/", async (req, res) => {
+Route.get("/users", async (req, res) => {
   try {
     res.send(await getUsers());
   } catch (err) {
@@ -14,7 +14,8 @@ Route.get("/", async (req, res) => {
 
 // Create a new User
 const CreateUser = require("../Controllers/CreateUser.js");
-Route.post("/", async (req, res) => {
+
+Route.post("/createuser", async (req, res) => {
   try {
     const result = await CreateUser(req.body);
     res.send(result);
