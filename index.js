@@ -1,5 +1,8 @@
 const express = require("express");
 const app = express();
+const ConnectDB = require("./Backend/Config/DbConfig");
+
+ConnectDB();
 
 app.get("/", (req, res) => {
   res.send("Hello World.");
