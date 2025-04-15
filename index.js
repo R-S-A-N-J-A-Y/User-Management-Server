@@ -4,6 +4,8 @@ const ConnectDB = require("./Backend/Config/DbConfig");
 
 ConnectDB();
 
+app.use(express.json());
+
 app.use("/api", require("./Backend/Routes/AppRoute.js"));
 
 app.get("/", (req, res) => {
