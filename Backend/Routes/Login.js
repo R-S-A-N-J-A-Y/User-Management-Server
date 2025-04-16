@@ -14,11 +14,11 @@ Route.post("/", async (req, res) => {
   }
 });
 
-// Get The User By UserName and Password
+// Get The User By UserName
 Route.post("/login", async (req, res) => {
-  const { username, password } = req.body;
+  const { username } = req.body;
   try {
-    const result = await getByUserName(username, password);
+    const result = await getByUserName(username);
     return res.send(result);
   } catch (err) {
     res.status(500).send(err.message);

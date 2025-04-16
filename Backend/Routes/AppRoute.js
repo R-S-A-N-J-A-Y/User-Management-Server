@@ -16,6 +16,7 @@ Route.get("/users", async (req, res) => {
 const CreateUser = require("../Controllers/CreateUser.js");
 
 Route.post("/createuser", async (req, res) => {
+  console.log(req.body);
   try {
     const result = await CreateUser(req.body);
     res.send(result);
