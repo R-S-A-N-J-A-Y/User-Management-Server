@@ -8,10 +8,11 @@ const getUsers = async () => {
   }
 };
 
-const getByUserName = async (username) => {
+const getByUserName = async (username, password) => {
   try {
     return await User.findOne({
       "credential.username": username,
+      "credential.password": password,
     });
   } catch (err) {
     throw new Error(err);
