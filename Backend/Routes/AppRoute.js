@@ -16,12 +16,18 @@ Route.get("/users", async (req, res) => {
 const CreateUser = require("../Controllers/CreateUser.js");
 
 Route.post("/createuser", async (req, res) => {
-  console.log(req.body);
+  console.log("Request");
   try {
     const result = await CreateUser(req.body);
+    console.log(result);
     res.send(result);
   } catch (err) {
-    res.status(500).json({ message: err.message });
+    if (err.code === 11000) {
+      res.status(400).json(err);
+    } else {
+      console.log(err.message);
+      res.status(400).json({ message: err.message });
+    }
   }
 });
 
