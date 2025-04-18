@@ -5,6 +5,12 @@ const userName = process.env.MONGO_USERNAME;
 const password = process.env.MONGO_PASSWORD;
 const URL = process.env.MONGO_CLUSTER_URL;
 
+console.log("Connecting with:", {
+  userName,
+  password,
+  URL,
+});
+
 const ConnectDB = () => {
   mongoose
     .connect(
